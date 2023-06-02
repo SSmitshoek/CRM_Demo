@@ -30,8 +30,5 @@ public class Contact {
 
     private String phone;
 
-    @OneToMany(mappedBy = "contact", orphanRemoval = true)
-    private List<Deal> deals;
-
     // getters and setters...
 }
