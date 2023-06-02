@@ -7,7 +7,9 @@ import lombok.Data;
 import java.util.List;
 
 @Entity
-@Table(name = "contacts")
+@Table(name = "contacts", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "email")
+})
 @Data
 public class Contact {
 
@@ -28,7 +30,7 @@ public class Contact {
 
     private String phone;
 
-    @OneToMany
+    @OneToMany(mappedBy = "contact", orphanRemoval = true)
     private List<Deal> deals;
 
     // getters and setters...

@@ -20,6 +20,7 @@ public class Task {
     private LocalDateTime dueDate;
 
     @ManyToOne
+    @JoinColumn(name = "contact_id")
     private Contact contact;
 
     // getters and setters...

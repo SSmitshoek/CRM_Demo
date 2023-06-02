@@ -1,9 +1,8 @@
 package com.onclick.crmdemoproject.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -17,12 +16,20 @@ public class Deal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Min(value = 1, message = "Please make sure the title is at least 1 character long.")
-    @Max(value = 30, message = "Please make sure the title is no more than 30 characters long.")
+    @NotNull(message = "Please make sure the title is filled in.")
+    @Size(max = 30, message = "Please make sure the title is no more than 30 characters long.")
     private String title;
 
+    @NotNull(message = "Please make sure the value is filled in.")
     private BigDecimal value;
 
-    private String stage;
+    @Enumerated(EnumType.STRING)
+    @NotNull(message = "Please make sure the stage is filled in.")
+    private DealStageEnum stage;
+
+    @ManyToOne
+    @JoinColumn(name = "contact_id")
+    @JsonIgnore
+    private Contact contact;
 
 }
