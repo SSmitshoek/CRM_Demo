@@ -3,6 +3,8 @@ package com.onclick.crmdemoproject.services;
 import com.onclick.crmdemoproject.exceptions.ResourceNotFoundException;
 import com.onclick.crmdemoproject.models.Contact;
 import com.onclick.crmdemoproject.repositories.ContactRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -38,5 +40,9 @@ public class ContactService {
     public void deleteContact(Long id) {
         Contact contact = getContactById(id);
         contactRepository.delete(contact);
+    }
+
+    public Page<Contact> getAllContacts(Pageable pageable) {
+        return contactRepository.findAll(pageable);
     }
 }

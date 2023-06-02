@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/notes")
+@RequestMapping("/v1/notes")
 public class NoteController {
     private final NoteService noteService;
 

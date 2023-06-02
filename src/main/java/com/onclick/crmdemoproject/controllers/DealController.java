@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/deals")
+@RequestMapping("/v1/deals")
 public class DealController {
     private final DealService dealService;
 
