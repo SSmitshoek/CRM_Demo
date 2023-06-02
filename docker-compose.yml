@@ -1,5 +1,16 @@
 version: "3.9"  # optional since v1.27.0
 services:
+  backend:
+    image: ssmitshoek/crm_demo:dev
+    container_name: crm_demo_backend
+    ports:
+      - "8081:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/crm_demo
+      - SPRING_DATASOURCE_USERNAME=onclick
+      - SPRING_DATASOURCE_PASSWORD=mypassword
+    depends_on:
+      - database
   database:
     image: postgres:15rc1-alpine
     container_name: pg-database-crm-demo
