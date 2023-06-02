@@ -1,8 +1,7 @@
 package com.onclick.crmdemoproject.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -22,6 +21,7 @@ public class Note {
 
     @ManyToOne
     @JoinColumn(name = "contact_id")
+    @JsonIgnore
     private Contact contact;
 
     // getters and setters...
