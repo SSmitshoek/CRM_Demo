@@ -1,4 +1,4 @@
-package com.onclick.crmdemoproject;
+package com.onclick.crmdemoproject.controllers;
 import com.onclick.crmdemoproject.models.Contact;
 import com.onclick.crmdemoproject.services.ContactService;
 import jakarta.validation.Valid;
